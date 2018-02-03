@@ -5,7 +5,13 @@
   "author": "blaine richardson",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "dev": "nodemon server/server"
+  },
   "dependencies": {
-    "mongodb": "^3.0.2"
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongodb": "^3.0.2",
+    "mongoose": "^5.0.3"
   }
 }
