@@ -25,4 +25,18 @@ let todoObject = {
     completed: false
 }
 
-queries.findOneDelete(mongoUrl, dbName, collectionName, todoObject);
+let todoFilterObjectId = {
+    _id: new ObjectID("5a75e036c1e89389a91a5ef0")
+}
+
+let todoUpdateObject = {
+    $set: {
+        completed: true
+    }
+}
+
+let options = {
+    returnOriginal: false
+}
+
+queries.findOneUpdate(mongoUrl, dbName, collectionName, todoFilterObjectId, todoUpdateObject, options);

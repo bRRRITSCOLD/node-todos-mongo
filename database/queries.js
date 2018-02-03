@@ -1,6 +1,6 @@
 // const MongoClient = require('mongodb').MongoClient;
 
-const { MongoClient } = require('mongodb');
+const { MongoClient, ObjectID } = require('mongodb');
 
 
 module.exports = {
@@ -140,4 +140,24 @@ module.exports = {
     
         client.close();
     }),
+
+    findOneUpdate: (async (mongoUrl, dbName, collectionName, todoFilterObjectId, todoUpdateObject, options) => {
+        let client;
+    
+        try {
+            client = await MongoClient.connect(mongoUrl);
+            console.log("Connected correctly to server");
+    
+            const db = client.db(dbName);
+
+            let r = await db.collection(collectionName).findOneAndUpdate(todoFilterObjectId, todoUpdateObject, options);
+            
+            console.log(r);
+        } catch (err) {
+            console.log('Unable to insert document.', err.stack)
+        }
+    
+        client.close();
+    }),
+
 }
