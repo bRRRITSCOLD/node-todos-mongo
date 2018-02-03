@@ -1,0 +1,11 @@
+{
+  "name": "node-todos-mongo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "blaine richardson",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "mongodb": "^3.0.2"
+  }
+}
