@@ -81,6 +81,63 @@ module.exports = {
         }
     
         client.close();
-    })
+    }),
 
+
+    deleteMany: (async (mongoUrl, dbName, collectionName, todoObject) => {
+        let client;
+    
+        try {
+            client = await MongoClient.connect(mongoUrl);
+            console.log("Connected correctly to server");
+    
+            const db = client.db(dbName);
+    
+            let r = await db.collection(collectionName).deleteMany(todoObject);
+            
+            console.log(r);
+        } catch (err) {
+            console.log('Unable to insert document.', err.stack)
+        }
+    
+        client.close();
+    }),
+
+    deleteOne: (async (mongoUrl, dbName, collectionName, todoObject) => {
+        let client;
+    
+        try {
+            client = await MongoClient.connect(mongoUrl);
+            console.log("Connected correctly to server");
+    
+            const db = client.db(dbName);
+    
+            let r = await db.collection(collectionName).deleteOne(todoObject);
+            
+            console.log(r);
+        } catch (err) {
+            console.log('Unable to insert document.', err.stack)
+        }
+    
+        client.close();
+    }),
+
+    findOneDelete: (async (mongoUrl, dbName, collectionName, todoObject) => {
+        let client;
+    
+        try {
+            client = await MongoClient.connect(mongoUrl);
+            console.log("Connected correctly to server");
+    
+            const db = client.db(dbName);
+    
+            let r = await db.collection(collectionName).findOneAndDelete(todoObject);
+            
+            console.log(r);
+        } catch (err) {
+            console.log('Unable to insert document.', err.stack)
+        }
+    
+        client.close();
+    }),
 }

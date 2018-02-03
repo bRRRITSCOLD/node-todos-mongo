@@ -21,4 +21,8 @@ let queryConstraintId = {
     _id: new ObjectID('5a75d78d4a9f1b45e43637b8')
 }
 
-queries.countTodos(mongoUrl, dbName, collectionName);
+let todoObject = {
+    completed: false
+}
+
+queries.findOneDelete(mongoUrl, dbName, collectionName, todoObject);
