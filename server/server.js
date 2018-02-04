@@ -28,6 +28,14 @@ app.post('/todos', (req, res) => {
     })
 });
 
+app.get('/todos', (req, res) => {
+    Todo.find().then((todos) => {
+        res.status(200).send({ todos })
+    }, (error) => {
+        res.status(400).send(error);
+    })
+});
+
 app.listen(port, () => {
     console.log(`Started on port ${port}.`)
 });
