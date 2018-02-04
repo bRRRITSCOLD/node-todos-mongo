@@ -24,7 +24,11 @@ node server/server
 
 3)
 
-Use POSTMAN for usage
+Use POSTMAN for usage at:
+
+```bash
+localhost:1337
+```
 
 ###### Test Suite
 
