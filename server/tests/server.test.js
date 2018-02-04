@@ -1,14 +1,19 @@
+/** DEPENDENCIES **/
 const expect = require('expect');
 const request = require('supertest');
 
+/** USER CREATED DEPENDENCIES **/
 const { server } = require('../server.js');
 const { Todo } = require('../models/Todo.js');
 
+/** TEST DATA **/
+const { todos } = require('./data/todos.js');
+
 beforeEach((done) => {
     Todo.remove({}).then(() => {
-        done();
-    })
-})
+        return Todo.insertMany(todos);
+    }).then(() => done())
+});
 
 describe('POST /todos', () => {
     it('should create a new todo', (done) => {
@@ -26,7 +31,7 @@ describe('POST /todos', () => {
                     return done(error);
                 }
 
-                Todo.find().then((todos) => {
+                Todo.find({text}).then((todos) => {
                     expect(todos.length).toBe(1);
                     expect(todos[0].text).toBe(text);
                     done();
@@ -50,9 +55,21 @@ describe('POST /todos', () => {
                 }
 
                 Todo.find().then((todos) => {
-                    expect(todos.length).toBe(0);
+                    expect(todos.length).toBe(6);
                     done();
                 }).catch((error) => done(error));
             });        
     })
 });
+
+describe('GET /todos', () => {
+    it('should get all todos', (done) => {
+        request(server)
+            .get('/todos')
+            .expect(200)
+            .expect((res) => {
+                expect(res.body.todos.length).toBe(6);
+            })
+            .end(done)
+    })
+})
