@@ -66,3 +66,4 @@ typings/
 .DS_Stores
 *.DS_Stores
 
+/playground
