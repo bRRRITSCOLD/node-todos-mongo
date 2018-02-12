@@ -1,4 +1,4 @@
-## Todos Node MongoDB Express
+## Todos Node MongoDB Swagger
 
 Make sure to have a MongoDB instance running on your system at port: 27017
 
@@ -27,19 +27,13 @@ node server/server
 Use POSTMAN for usage at:
 
 ```bash
-localhost:1337
+localhost:8080
 ```
 
-###### Test Suite
+or
 
-1)
-
-``` bash
-npm run test
-```
-
-or 
+Use the SwaggerUI at:
 
 ```bash
-yarn run test
+localhost:8080/docs
 ```

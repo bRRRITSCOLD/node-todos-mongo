@@ -1,45 +1,45 @@
-const express = require('express');
-const bodyParser = require('body-parser');
+// node module dependencies
+const fs = require('fs');
+const path = require('path');
+const http = require('http');
 
-const { mongoose } = require('./database/mongoose.js');
+const app = require('connect')();
+const swaggerTools = require('swagger-tools');
+const jsyaml = require('js-yaml');
+const cors = require('cors');
 
-const { User } = require('./models/User.js');
-const { Todo } = require('./models/Todo.js');
+// local file dependencies
+const { corsConfig } = require('./api/configs/cors');
+const { swaggerRouterConfig } = require('./api/configs/swagger-router');
 
-// const { todosRoutes } =  require('./api/routes/todos.js');
+// port decleration
+const port = process.env.PORT || 8080;
 
-const app = express();
+// api dependencies
+const spec = fs.readFileSync(path.join(__dirname,'api/swagger.yaml'), 'utf8');
+const swaggerDoc = jsyaml.safeLoad(spec);
 
-const port = process.env.PORT || 1337;
-
-app.use(bodyParser.json());
-
-// app.use('/todos', todosRoutes)
-
-app.post('/todos', (req, res) => {
-    let newTodo = new Todo({
-        text: req.body.text
-    });
-
-    newTodo.save().then((todo) => {
-        res.status(200).send(todo);
-    }, (error) => {
-        res.status(400).send(error);
-    })
-});
-
-app.get('/todos', (req, res) => {
-    Todo.find().then((todos) => {
-        res.status(200).send({ todos })
-    }, (error) => {
-        res.status(400).send(error);
-    })
-});
-
-app.listen(port, () => {
-    console.log(`Started on port ${port}.`)
-});
-
-module.exports = {
-    server: app
-}
+// initialize swagger middleware
+swaggerTools.initializeMiddleware(swaggerDoc, (middleware) => {
+    
+    // add cors support
+    app.use(cors(corsConfig));
+    
+    // add cors support
+    app.use(middleware.swaggerMetadata());
+    
+    // add cors support
+    app.use(middleware.swaggerValidator());
+    
+    // add cors support
+    app.use(middleware.swaggerRouter(swaggerRouterConfig));
+    
+    // add cors support
+    app.use(middleware.swaggerUi());
+    
+    // add cors support
+    http.createServer(app).listen(port, function () {
+        console.log('Your server is listening on port %d (http://localhost:%d)', port, port);
+        console.log('Swagger-ui is available on http://localhost:%d/docs', port);
+      }); 
+})

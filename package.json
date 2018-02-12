@@ -6,15 +6,18 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "dev": "nodemon server/server",
+    "server:dev": "nodemon server/server.swagger.js",    
     "test": "mocha server/**/*.test.js",
-    "test-watch": "nodemon --exec 'npm test'"
+    "test:watch": "nodemon --exec 'npm test'"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
-    "express": "^4.16.2",
+    "connect": "^3.6.5",
+    "cors": "^2.8.4",
+    "fs": "^0.0.1-security",
+    "lodash": "^4.17.5",
     "mongodb": "^3.0.2",
-    "mongoose": "^5.0.3"
+    "swagger-tools": "^0.10.1"
   },
   "devDependencies": {
     "expect": "^22.1.0",
