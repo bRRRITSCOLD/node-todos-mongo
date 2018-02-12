@@ -4,7 +4,8 @@ const { MongoClient } = require('mongodb');
 // local file dependencies
 const validator = require('../../../../utils/validators');
 
-/* definition of the MongoDBClient
+/**
+ * definition of the MongoDBClient
  * (MongoClient) class/module
  * 
  * @Params = config or values of the config.keys
@@ -12,7 +13,8 @@ const validator = require('../../../../utils/validators');
 class MongoDBClient {
     constructor(config) {
 
-        /* validate/check the types
+        /**
+         * validate/check the types
          * of the configs values  
          * meant for the constructor
          * 
@@ -26,7 +28,8 @@ class MongoDBClient {
             validator.isString(config.databaseName)
         )
 
-        /* initiate/construct the object
+        /**
+         * initiate/construct the object
          * this will occur once the validations
          * above are 'passing' and no errors are thron.
          * (knock on wood)
@@ -39,7 +42,8 @@ class MongoDBClient {
         this.databasePassword = config.databasePassword || null
     }
 
-    /* finds all objects/documents
+    /**
+     * finds all objects/documents
      * of the given collection name
      * 
      * @Params = collectionName
@@ -61,7 +65,8 @@ class MongoDBClient {
         client.close();
     }
 
-    /* adds a new object
+    /**
+     * adds a new object
      * the chosen collection
      * in the backend mongo
      * database
@@ -86,7 +91,8 @@ class MongoDBClient {
         client.close();
     }
 
-    /* finds multiple objects
+    /**
+     * finds multiple objects
      * matching your chosen query
      * constraint
      * 
@@ -111,7 +117,8 @@ class MongoDBClient {
         client.close();
     }
 
-    /* counts the number of
+    /**
+     * counts the number of
      * objects/documents in
      * a given collection
      * 
@@ -136,7 +143,8 @@ class MongoDBClient {
         client.close();
     }
 
-    /* finds all objects/documents
+    /** 
+     * finds all objects/documents
      * of the given collection name
      * 
      * @Params = collectionName
@@ -160,7 +168,8 @@ class MongoDBClient {
         client.close();
     }
 
-    /* finds all objects/documents
+    /**
+     * finds all objects/documents
      * of the given collection name
      * 
      * @Params = collectionName
@@ -184,7 +193,8 @@ class MongoDBClient {
         client.close();
     }
 
-    /* finds all objects/documents
+    /**
+     * finds all objects/documents
      * of the given collection name
      * 
      * @Params = collectionName
@@ -208,7 +218,8 @@ class MongoDBClient {
         client.close();
     }
 
-    /* finds ocuments
+    /**
+     * finds documents
      * of the given collection name
      * 
      * @Params = collectionName

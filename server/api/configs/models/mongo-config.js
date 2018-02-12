@@ -3,7 +3,8 @@ const validator = require('../../utils/validators');
 class MongoDBConfig {
     constructor(options) {
 
-        /* validate/check the types
+        /**
+         * validate/check the types
          * of the configs values  
          * meant for the constructor
          * 
@@ -17,7 +18,8 @@ class MongoDBConfig {
             validator.isString(options.databaseName)
        )
 
-       /* initiate/construct the object
+        /**
+         * initiate/construct the object
          * this will occur once the validations
          * above are 'passing' and no errors are thrown.
          * (knock on wood)

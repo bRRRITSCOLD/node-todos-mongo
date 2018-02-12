@@ -3,7 +3,8 @@ const validator = require('../../utils/validators');
 class CorsConfig {
     constructor(options) {
 
-        /* validate/check the types
+        /**
+         * validate/check the types
          * of the configs values  
          * meant for the constructor
          * 
@@ -15,7 +16,8 @@ class CorsConfig {
             validator.isNumber(options.optionsSuccessStatus)
        )
 
-       /* initiate/construct the object
+        /** 
+         * initiate/construct the object
          * this will occur once the validations
          * above are 'passing' and no errors are thron.
          * (knock on wood)

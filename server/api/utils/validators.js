@@ -2,9 +2,11 @@ const _ = require('lodash');
 
 module.exports = {
 
-    /* check/validate that a single argument
+    /**
+     * check/validate that a single argument
      * is not empty (null, nil, NaN)
      * 
+     * @Module = lodash
      * @Params = value of arg.key
     */ 
     emptyArgument: (arg) => {
@@ -14,9 +16,11 @@ module.exports = {
         return null
     },
 
-    /* checks/validates that multiple arguments
+    /**
+     * checks/validates that multiple arguments
      * are not not empty (null, nil, NaN)
      * 
+     * @Module = lodash
      * @Params = values of args
     */ 
     emptyArguments: (args) => {
@@ -28,9 +32,11 @@ module.exports = {
         return null
     },
 
-    /* checks/validates that a
+    /**
+     * checks/validates that a
      * single argument is a string
      * 
+     * @Module = lodash
      * @Params = values of args
     */ 
     isString: (arg) => {
@@ -40,9 +46,11 @@ module.exports = {
         return null
     },
 
-    /* checks/validates that multiple
+    /**
+     * checks/validates that multiple
      * arguments are string
      * 
+     * @Module = lodash
      * @Params = values of args
     */ 
     areStrings: (args) => {
@@ -54,9 +62,11 @@ module.exports = {
         return null
     },
 
-    /* checks/validates that a
+    /**
+     * checks/validates that a
      * single argument is a boolean
      * 
+     * @Module = lodash
      * @Params = values of args
     */ 
     isBoolean: (arg) => {
@@ -66,9 +76,11 @@ module.exports = {
         return null
     },
     
-    /* checks/validates that multiple 
+    /**
+     * checks/validates that multiple 
      * arguments are booleans
      * 
+     * @Module = lodash
      * @Params = values of args
     */ 
     areBooleans: (args) => {
@@ -80,9 +92,11 @@ module.exports = {
         return null
     },
 
-    /* checks/validates that a single
+    /**
+     * checks/validates that a single
      * boolean argument is false
      * 
+     * @Module = lodash
      * @Params = values of args
     */ 
     isFalse: (arg, next) => {
@@ -91,9 +105,11 @@ module.exports = {
         }
     },
 
-    /* checks/validates that a single
+    /**
+     * checks/validates that a single
      * boolean argument is true
      * 
+     * @Module = lodash
      * @Params = values of args
     */ 
     isTrue: (arg) => {
@@ -103,9 +119,11 @@ module.exports = {
         return null
     },
 
-    /* checks/validates that a single
+    /**
+     * checks/validates that a single
      * argument is a date (date object)
      * 
+     * @Module = lodash
      * @Params = values of args
     */
     isDate: (arg) => {
@@ -115,9 +133,11 @@ module.exports = {
         return null
     },
 
-    /* checks/validates that a
+    /**
+     * checks/validates that a
      * single argument is a number 
      * 
+     * @Module = lodash
      * @Params = values of args
     */
     isNumber: (arg) => {
